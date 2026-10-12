@@ -450,62 +450,464 @@ pre,code{white-space:pre-wrap;overflow-wrap:anywhere;}
 
 /* Final login transparency guarantee */
 .login-card,.login-side-panel{background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}
+
+/* ODINX V8: full-viewport aircraft animation with a truly transparent login overlay */
+.login-screen{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;min-height:100dvh!important;overflow:hidden!important;padding:0!important;background:#f5f9ff!important;isolation:isolate}
+.login-atmosphere{position:absolute!important;inset:0!important;background:radial-gradient(ellipse at 50% 45%,rgba(213,239,255,.45),transparent 62%),linear-gradient(135deg,#f7fbff,#edf5ff 55%,#fbfcff)!important}
+.login-atmosphere:before{display:none!important}
+.login-map-wrap{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-width:0!important;display:block!important;overflow:hidden!important;opacity:1!important;pointer-events:none!important}
+.login-map{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;max-width:none!important;transform:none!important;overflow:hidden!important;filter:none!important}
+.login-map-desktop{display:block!important}
+.login-map-mobile{display:none!important}
+.india-land,.india-state-lines{display:none!important}
+.flight-route{fill:none!important;stroke:#48a8d7!important;stroke-width:2.4!important;stroke-dasharray:8 10!important;opacity:.56!important;filter:none!important}
+.flight-route.purple{stroke:#8268e8!important;opacity:.55!important}
+.city-node circle{fill:rgba(255,255,255,.82)!important;stroke:#078ac4!important;stroke-width:3!important;r:8px;filter:drop-shadow(0 0 8px rgba(13,153,209,.28))}
+.city-node.hot circle{stroke:#ee615e!important}
+.city-node text{font:800 16px Inter,system-ui,sans-serif!important;letter-spacing:.045em!important;fill:#21435d!important;paint-order:stroke!important;stroke:rgba(248,252,255,.96)!important;stroke-width:5px!important;stroke-linejoin:round!important}
+.moving-plane text{font:normal 38px Arial,sans-serif!important;fill:#087fb6!important;filter:drop-shadow(0 2px 4px rgba(255,255,255,.95)) drop-shadow(0 0 5px rgba(8,127,182,.2))!important}
+.moving-plane.violet text{fill:#7659dc!important}
+.login-side-panel{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;padding:5vw!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;pointer-events:none!important}
+.login-card{pointer-events:auto!important;width:min(440px,42vw)!important;max-height:92dvh!important;overflow-y:auto!important;padding:0!important;margin:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;animation:loginRise .5s ease both!important}
+.login-brand{margin-bottom:24px!important}.login-brand img{width:54px!important;height:54px!important;background:transparent!important;border:0!important}
+.login-card h1{font-size:clamp(28px,3vw,40px)!important;color:#173650!important}
+.login-sub,.login-brand span,.login-footer,.login-network-footer{color:#506f88!important}
+.login-eyebrow{font-size:11px!important}
+.login-field label{color:#24445c!important;font-size:13px!important}
+.login-field input{height:49px!important;border:1px solid rgba(67,111,144,.4)!important;border-radius:11px!important;background:rgba(255,255,255,.16)!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.login-show-pass{background:transparent!important}
+.login-submit{height:51px!important;border-radius:11px!important}
+.login-network-footer{border-top:1px solid rgba(75,117,147,.22)!important}
+.login-map-caption{position:absolute!important;left:5%!important;top:7%!important;max-width:min(480px,43vw)!important;z-index:2!important}
+.login-map-caption .eyebrow{font-size:12px!important;letter-spacing:.2em!important}
+.login-map-caption h2{font-size:clamp(30px,4vw,56px)!important;line-height:1.05!important;max-width:500px!important}
+.login-map-caption p{font-size:14px!important;max-width:380px!important}
+.air-radar{left:5%!important;top:auto!important;bottom:5%!important;background:rgba(255,255,255,.45)!important;border:1px solid rgba(120,165,194,.28)!important;box-shadow:none!important;backdrop-filter:none!important}
+.air-stat-strip{left:5%!important;right:5%!important;bottom:10%!important;max-width:none!important;display:flex!important;opacity:.72!important;pointer-events:none!important}
+.air-stat{background:rgba(255,255,255,.18)!important;border:1px solid rgba(120,165,194,.24)!important;box-shadow:none!important;backdrop-filter:none!important}
+.fake-notification-wrap{position:fixed;right:max(18px,env(safe-area-inset-right));top:max(18px,env(safe-area-inset-top));z-index:10010;font-family:Inter,system-ui,sans-serif}
+.fake-notification-button{position:relative;display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(64,112,145,.22);border-radius:50%;background:rgba(255,255,255,.72);color:#173d57;box-shadow:0 5px 24px rgba(32,82,114,.1);cursor:pointer;animation:fakeBellBlink 1.3s ease-in-out infinite}
+.fake-notification-button svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fake-notification-count{position:absolute;right:-3px;top:-3px;min-width:22px;height:22px;padding:0 5px;display:grid;place-items:center;border:2px solid #f5f9ff;border-radius:999px;background:#ef4444;color:white;font-size:12px;font-weight:900;line-height:1;animation:fakeBadgePulse .85s infinite}
+@keyframes fakeBellBlink{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.06);transform:scale(1)}50%{box-shadow:0 0 0 7px rgba(239,68,68,.13);transform:scale(1.045)}}
+@keyframes fakeBadgePulse{0%,100%{opacity:1}50%{opacity:.5}}
+.fake-notification-popover{position:absolute;right:0;top:58px;width:min(330px,calc(100vw - 28px));padding:14px;border:1px solid rgba(80,125,155,.18);border-radius:16px;background:rgba(250,253,255,.96);box-shadow:0 16px 48px rgba(22,54,80,.18);color:#1d3b52;backdrop-filter:blur(10px)}
+.fake-notification-popover[hidden]{display:none!important}
+.fake-notification-heading{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:850;padding:2px 2px 10px;border-bottom:1px solid #e3edf5}
+.fake-notification-heading small{font-size:9px;letter-spacing:.12em;color:#087da5}
+.fake-notification-item{display:flex;align-items:flex-start;gap:9px;padding:11px 2px;border-bottom:1px solid #e8eff5}
+.fake-notification-item span{flex:1;min-width:0}.fake-notification-item b{display:block;font-size:12px}.fake-notification-item small{display:block;font-size:10px;color:#6d879a;margin-top:4px}.fake-notification-item em{font-size:10px;font-style:normal;font-weight:900;color:#087da5}
+.fn-dot{width:8px;height:8px;flex:0 0 8px;border-radius:50%;margin-top:4px}.fn-dot.cyan{background:#0e9bc7}.fn-dot.purple{background:#8663e8}.fn-dot.red{background:#ef5350}
+.fake-notification-note{padding:9px 2px 0;color:#8499a8;font-size:9px}
+@media(max-width:700px){
+ .login-map-desktop{display:none!important}.login-map-mobile{display:block!important}
+ .login-atmosphere{background:linear-gradient(180deg,#f7fbff,#eef6ff 50%,#f8fbff)!important}
+ .login-map-caption{left:6%!important;right:15%!important;top:max(78px,calc(env(safe-area-inset-top) + 62px))!important;max-width:90%!important}
+ .login-map-caption .eyebrow{font-size:9px!important;letter-spacing:.16em!important}
+ .login-map-caption h2{font-size:clamp(26px,7.3vw,35px)!important;max-width:350px!important;margin:8px 0!important;line-height:1.03!important}
+ .login-map-caption p{font-size:11px!important;line-height:1.45!important;max-width:330px!important}
+ .login-side-panel{align-items:flex-end!important;justify-content:center!important;padding:0 24px max(25px,env(safe-area-inset-bottom))!important}
+ .login-card{width:100%!important;max-width:440px!important;max-height:55dvh!important;overflow-y:auto!important;padding:0!important}
+ .login-brand{gap:10px!important;margin-bottom:12px!important}.login-brand img{width:42px!important;height:42px!important}
+ .login-brand strong{font-size:19px!important}.login-brand span{font-size:9px!important}
+ .login-eyebrow{font-size:9px!important}.login-card h1{font-size:26px!important;margin:5px 0!important}
+ .login-sub{font-size:11px!important;line-height:1.4!important;margin-bottom:11px!important}
+ .login-field{margin:9px 0!important}.login-field label{font-size:11px!important;margin-bottom:5px!important}
+ .login-field input{height:43px!important;font-size:14px!important}
+ .login-submit{height:46px!important;margin-top:5px!important}
+ .login-footer{margin-top:10px!important;font-size:10px!important}.login-network-footer{margin-top:9px!important;padding-top:8px!important;font-size:9px!important}
+ .air-radar{left:6%!important;bottom:auto!important;top:calc(49% + env(safe-area-inset-top))!important;font-size:8px!important;padding:6px 9px!important}
+ .air-stat-strip{display:none!important}
+ .city-node text{font-size:12px!important;stroke-width:3.5px!important}
+ .moving-plane text{font-size:33px!important}
+ .fake-notification-wrap{right:max(14px,env(safe-area-inset-right));top:max(14px,env(safe-area-inset-top))}
+ .fake-notification-button{width:42px;height:42px}
+ .fake-notification-button svg{width:21px;height:21px}
+}
+@media(max-height:740px) and (max-width:700px){
+ .login-map-caption{top:max(62px,calc(env(safe-area-inset-top) + 48px))!important}
+ .login-map-caption h2{font-size:24px!important}
+ .login-map-caption p{display:none!important}
+ .login-card{max-height:62dvh!important}
+ .login-brand{margin-bottom:7px!important}.login-network-footer{display:none!important}
+ .air-radar{top:42%!important}
+}
+@media(prefers-reduced-motion:reduce){.moving-plane text,.fake-notification-button,.fake-notification-count{animation:none!important}}
+
+
+.demo-logout{border:1px solid rgba(105,143,169,.32)!important;background:rgba(255,255,255,.48)!important;color:#254861!important;border-radius:9px!important;padding:8px 11px!important;font-size:11px!important;font-weight:800!important;cursor:pointer!important;white-space:nowrap!important}
+@media(max-width:700px){.topbar{gap:8px!important}.topbar>div:first-child{min-width:0!important}.topbar .crumb{max-width:130px!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}.topbar .demo-logout{padding:7px 8px!important;font-size:10px!important}}
+
+
+
+/* ODINX V9 visual correction: notification is authenticated-only and top-centred */
+.fake-notification-wrap{display:none!important;position:fixed!important;left:50%!important;right:auto!important;top:max(12px,env(safe-area-inset-top))!important;transform:translateX(-50%)!important;z-index:10020!important}
+body.odinx-authenticated .fake-notification-wrap{display:block!important}
+.fake-notification-button{width:48px!important;height:48px!important;border:1px solid rgba(8,137,184,.24)!important;background:rgba(255,255,255,.86)!important;color:#087da5!important;box-shadow:0 0 0 5px rgba(8,137,184,.07),0 8px 28px rgba(8,65,96,.14)!important;animation:odinxCenterBellPulse 1.05s ease-in-out infinite!important}
+.fake-notification-count{background:#f04452!important;border-color:#fff!important}
+.fake-notification-popover{left:50%!important;right:auto!important;transform:translateX(-50%)!important;top:57px!important}
+@keyframes odinxCenterBellPulse{0%,100%{box-shadow:0 0 0 0 rgba(8,137,184,.08),0 8px 28px rgba(8,65,96,.12);transform:scale(1)}50%{box-shadow:0 0 0 9px rgba(8,137,184,.15),0 8px 32px rgba(8,65,96,.16);transform:scale(1.06)}}
+
+/* Full transparency: no login panel/card/input boxes, just labels and understated input baselines */
+.login-screen{background:transparent!important}
+.login-atmosphere{background:transparent!important}
+.login-card,.login-side-panel{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.login-field input{background:transparent!important;border:0!important;border-bottom:1px solid rgba(53,104,137,.34)!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;padding-left:0!important;padding-right:0!important}
+.login-field input:focus{border-bottom-color:#078db9!important;box-shadow:0 1px 0 #078db9!important;outline:none!important}
+.login-show-pass{background:transparent!important;border:0!important;box-shadow:none!important}
+.login-network-footer{border:0!important}
+
+/* Shorter copy and tighter composition on mobile so flights remain visible behind the form */
+@media(max-width:700px){
+ .login-map-caption{top:max(72px,calc(env(safe-area-inset-top) + 52px))!important;left:6%!important;right:6%!important;max-width:none!important;width:auto!important}
+ .login-map-caption .eyebrow{font-size:8px!important;letter-spacing:.13em!important}
+ .login-map-caption h2{font-size:clamp(21px,5.8vw,28px)!important;line-height:1.02!important;max-width:310px!important;margin:6px 0!important;letter-spacing:-.04em!important}
+ .login-map-caption p{font-size:10px!important;line-height:1.32!important;max-width:285px!important;margin:0!important}
+ .login-map-wrap{inset:20% 0 0 0!important;height:80%!important;overflow:hidden!important}
+ .login-map{inset:0!important;width:100%!important;height:100%!important;opacity:1!important}
+ .login-side-panel{inset:48% 0 0 0!important;padding:0 7% max(18px,env(safe-area-inset-bottom))!important;align-items:flex-start!important;justify-content:center!important}
+ .login-card{width:100%!important;max-width:440px!important;max-height:51dvh!important;overflow-y:auto!important;padding:0!important}
+ .login-brand{margin-bottom:8px!important;gap:8px!important}
+ .login-brand img{width:34px!important;height:34px!important}
+ .login-brand strong{font-size:17px!important}.login-brand span{font-size:8px!important}
+ .login-eyebrow{font-size:8px!important;letter-spacing:.12em!important}
+ .login-card h1{font-size:22px!important;line-height:1.06!important;margin:4px 0!important}
+ .login-sub{font-size:10px!important;line-height:1.28!important;margin:0 0 7px!important;max-width:100%!important}
+ .login-field{margin:6px 0!important;gap:3px!important}
+ .login-field label{font-size:10px!important;margin-bottom:2px!important}
+ .login-field input{height:35px!important;font-size:14px!important}
+ .login-show-pass{height:30px!important;top:1px!important}
+ .login-submit{height:40px!important;margin-top:5px!important;font-size:12px!important}
+ .login-footer{margin-top:7px!important;font-size:9px!important}
+ .login-network-footer{display:none!important}
+ .fake-notification-wrap{top:max(8px,env(safe-area-inset-top))!important}
+ .fake-notification-button{width:40px!important;height:40px!important}
+ .fake-notification-button svg{width:19px!important;height:19px!important}
+ .fake-notification-count{min-width:19px!important;height:19px!important;font-size:10px!important}
+}
+@media(max-width:390px){
+ .login-map-caption h2{font-size:21px!important;max-width:280px!important}
+ .login-map-caption p{font-size:9px!important;max-width:255px!important}
+ .login-side-panel{top:47%!important;padding-left:6%!important;padding-right:6%!important}
+ .login-card{max-height:53dvh!important}
+ .login-brand{margin-bottom:6px!important}.login-sub{margin-bottom:5px!important}
+ .login-field{margin:5px 0!important}.login-field input{height:33px!important}
+}
+
+/* Premium analytics bars: dimensional gradient, subtle grid, glowing caps and responsive labels */
+.chartwrap{padding:12px 8px 30px!important;border-radius:14px!important;background:linear-gradient(180deg,rgba(238,248,255,.72),rgba(255,255,255,.2))!important;overflow:hidden!important}
+.chartbars{height:210px!important;gap:clamp(5px,1.05vw,13px)!important;padding:18px 8px 0!important;border-bottom:1px solid #cbd8e6!important;position:relative!important;isolation:isolate!important;background:repeating-linear-gradient(to top,transparent 0,transparent 41px,rgba(93,130,161,.12) 42px,transparent 43px)!important}
+.chartbar{min-width:8px!important;max-width:68px!important;border-radius:9px 9px 3px 3px!important;opacity:1!important;position:relative!important;overflow:visible!important;background:linear-gradient(180deg,#65e7f5 0%,#10b9d4 30%,#3579ef 72%,#6659e8 100%)!important;box-shadow:inset 1px 0 rgba(255,255,255,.38),inset -1px 0 rgba(14,70,147,.1),0 5px 16px rgba(31,135,210,.17)!important;transition:filter .22s ease,transform .22s ease!important}
+.chartbar:before{content:"";position:absolute;top:0;left:12%;right:12%;height:4px;border-radius:999px;background:rgba(255,255,255,.8);box-shadow:0 0 10px rgba(80,223,245,.7)}
+.chartbar:after{content:"";position:absolute;inset:8px 2px 2px;border-radius:6px 6px 2px 2px;background:linear-gradient(90deg,rgba(255,255,255,.12),transparent 35%,rgba(8,40,110,.08))}
+.chartbar:nth-child(3n){background:linear-gradient(180deg,#a3f7e2 0%,#32d3a1 34%,#09a6c6 70%,#366ee8 100%)!important}
+.chartbar:nth-child(4n){background:linear-gradient(180deg,#d1c4ff 0%,#9b83ff 35%,#6d69f2 70%,#3978e8 100%)!important}
+.chartbar span{z-index:2;bottom:-25px!important;font-size:10px!important;font-weight:700!important;color:#5a7088!important;white-space:nowrap!important}
+.chartbar:hover{filter:saturate(1.22) brightness(1.06)!important;transform:translateY(-3px)!important}
+@media(max-width:700px){.chartwrap{padding:8px 4px 27px!important}.chartbars{height:170px!important;gap:5px!important;padding-left:3px!important;padding-right:3px!important}.chartbar{min-width:5px!important;border-radius:6px 6px 2px 2px!important}.chartbar span{font-size:8px!important;bottom:-22px!important}}
+
+
+/* ODINX v10: premium dark telemetry map, distinct aircraft, and isolated notification clicks */
+#odxNetwork .odx-satmap{background:radial-gradient(ellipse at 50% 42%,#12334b 0%,#0a1c30 55%,#061321 100%)!important;border:1px solid #24455d!important;box-shadow:inset 0 0 55px rgba(20,180,218,.12),0 16px 38px rgba(4,22,40,.16)!important;position:relative!important;isolation:isolate!important}
+#odxNetwork .odx-satmap:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(39,215,239,.06),transparent 35%,rgba(139,92,246,.08)),repeating-linear-gradient(0deg,transparent 0 29px,rgba(104,175,210,.07) 30px),repeating-linear-gradient(90deg,transparent 0 29px,rgba(104,175,210,.06) 30px);mix-blend-mode:screen}
+#odxNetwork .odx-satmap svg{position:relative;z-index:1;filter:drop-shadow(0 0 16px rgba(16,174,220,.08))}
+#odxNetwork .odx-satmap svg>rect:first-of-type{fill:#08182b!important}
+#odxNetwork .odx-satmap svg>rect:nth-of-type(2){display:none!important}
+#odxNetwork .odx-road{stroke:#2b4d65!important;stroke-width:2.4!important;opacity:.9!important;filter:none!important}
+#odxNetwork .odx-roadminor{stroke:#19384e!important;stroke-width:1.2!important;opacity:.92!important}
+#odxNetwork .odx-route{stroke:#22d3ee!important;stroke-width:2.8!important;stroke-dasharray:7 8!important;filter:drop-shadow(0 0 4px rgba(34,211,238,.52))!important;opacity:.95!important}
+#odxNetwork .odx-route.purple{stroke:#a78bfa!important;filter:drop-shadow(0 0 5px rgba(167,139,250,.6))!important}
+#odxNetwork .odx-route.orange{stroke:#fb923c!important;filter:drop-shadow(0 0 5px rgba(251,146,60,.5))!important}
+#odxNetwork .odx-map-label{fill:#f0f8ff!important;stroke:#071a2b!important;stroke-width:3.5px!important;paint-order:stroke!important;font-size:11px!important;letter-spacing:.025em!important}
+#odxNetwork .odx-city-dot{stroke:#e7faff!important;stroke-width:2.5!important;filter:drop-shadow(0 0 5px rgba(34,211,238,.45))!important}
+#odxNetwork .odx-city-ring{stroke:#fb7185!important;stroke-width:2.2!important;filter:drop-shadow(0 0 4px rgba(251,113,133,.42))!important}
+#odxNetwork .odx-city-ring.ok{stroke:#34e7b1!important;filter:drop-shadow(0 0 4px rgba(52,231,177,.5))!important}
+#odxNetwork .odx-city-ring.full{stroke:#b69aff!important;filter:drop-shadow(0 0 5px rgba(182,154,255,.55))!important}
+#odxNetwork .odx-ship text{font-size:17px!important;fill:#b9f6ff!important;stroke:#0a2034!important;stroke-width:2px!important;paint-order:stroke!important;filter:drop-shadow(0 0 7px rgba(34,211,238,.95))!important}
+/* Put the notification at the visual top-centre and prevent it from intercepting unrelated controls. */
+.fake-notification-wrap{display:none!important;position:fixed!important;left:50vw!important;right:auto!important;top:max(10px,env(safe-area-inset-top))!important;bottom:auto!important;margin:0!important;transform:translateX(-50%)!important;z-index:2147483000!important;pointer-events:none!important}
+body.odinx-authenticated .fake-notification-wrap{display:block!important}
+.fake-notification-button,.fake-notification-popover{pointer-events:auto!important}
+.fake-notification-button{position:relative!important;z-index:2!important}
+.fake-notification-popover{z-index:3!important}
+.demo-logout{position:relative!important;z-index:4!important;pointer-events:auto!important}
+@media(max-width:700px){#odxNetwork .odx-satmap svg{height:clamp(250px,68vw,360px)!important}.fake-notification-wrap{top:max(8px,env(safe-area-inset-top))!important}}
+
+
+/* ODINX V11: reserve clean whitespace for a compact, readable login */
+.login-screen{
+  background:#fff!important;
+  isolation:isolate!important;
+}
+.login-atmosphere{background:#fff!important}
+.login-atmosphere:before,.login-atmosphere:after{opacity:.12!important}
+.login-map-wrap{
+  left:0!important;right:auto!important;top:0!important;bottom:0!important;
+  width:69%!important;min-width:0!important;height:100%!important;
+  overflow:hidden!important;opacity:1!important;
+}
+.login-map-desktop{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  min-height:0!important;transform:none!important;
+}
+.login-map-caption{
+  left:5%!important;top:8%!important;max-width:min(500px,53vw)!important;
+  z-index:3!important;
+}
+.login-map-caption h2{
+  font-size:clamp(29px,3.4vw,48px)!important;
+  line-height:1.06!important;max-width:500px!important;
+}
+.login-map-caption p{max-width:390px!important;line-height:1.5!important}
+.login-side-panel{
+  position:absolute!important;inset:0 3.2% 0 auto!important;
+  width:min(300px,25vw)!important;height:100%!important;min-height:0!important;
+  padding:18px 0!important;display:flex!important;align-items:center!important;
+  justify-content:center!important;background:#fff!important;border:0!important;
+  border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;
+  z-index:5!important;
+}
+.login-card{
+  width:100%!important;max-width:300px!important;max-height:calc(100dvh - 28px)!important;
+  overflow-y:auto!important;padding:0!important;margin:0!important;
+  background:transparent!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+.login-brand{gap:9px!important;margin-bottom:17px!important}
+.login-brand img{width:42px!important;height:42px!important;border-radius:0!important}
+.login-brand strong{font-size:18px!important}
+.login-brand span{font-size:9px!important}
+.login-eyebrow{font-size:9px!important;letter-spacing:.15em!important}
+.login-card h1{font-size:25px!important;line-height:1.08!important;margin:6px 0!important}
+.login-sub{font-size:12px!important;line-height:1.45!important;margin:0 0 14px!important}
+.login-field{margin:10px 0!important}
+.login-field label{font-size:11px!important;margin-bottom:4px!important}
+.login-field input{height:37px!important;font-size:13px!important;padding:0!important;background:transparent!important;border:0!important;border-bottom:1px solid #cbd8e2!important;border-radius:0!important;box-shadow:none!important}
+.login-field input:focus{border-bottom-color:#078db9!important;box-shadow:0 1px 0 #078db9!important}
+.login-submit{height:40px!important;margin-top:8px!important;border-radius:7px!important}
+.login-footer{margin-top:12px!important}
+.login-network-footer{margin-top:12px!important;padding-top:8px!important}
+.air-stat-strip{left:5%!important;bottom:4%!important;z-index:3!important}
+.air-stat{min-width:90px!important}
+.login-map-mobile{display:none!important}
+
+/* Phone: animation stays in the upper canvas; compact login sits in clean white space below. */
+@media(max-width:700px){
+  .login-screen{position:fixed!important;inset:0!important;height:100dvh!important;min-height:0!important;overflow:hidden!important;background:#fff!important}
+  .login-atmosphere{background:#fff!important}
+  .login-map-wrap{
+    inset:0 0 auto 0!important;width:100%!important;height:57%!important;min-width:0!important;
+    overflow:hidden!important;opacity:1!important;
+  }
+  .login-map-desktop{display:none!important}
+  .login-map-mobile{
+    display:block!important;position:absolute!important;left:0!important;top:0!important;
+    width:100%!important;height:100%!important;min-height:0!important;transform:none!important;
+  }
+  .login-map-caption{
+    left:6%!important;right:6%!important;top:max(22px,calc(env(safe-area-inset-top) + 16px))!important;
+    max-width:none!important;width:auto!important;z-index:3!important;
+  }
+  .login-map-caption .eyebrow{font-size:8px!important;letter-spacing:.14em!important}
+  .login-map-caption h2{font-size:clamp(22px,6.1vw,29px)!important;line-height:1.04!important;margin:6px 0!important;max-width:340px!important}
+  .login-map-caption p{display:none!important}
+  .air-stat-strip{display:none!important}
+  .login-side-panel{
+    inset:55% 0 0 0!important;width:100%!important;height:auto!important;min-height:0!important;
+    padding:14px 7% max(12px,env(safe-area-inset-bottom))!important;
+    align-items:flex-start!important;justify-content:flex-start!important;
+    background:#fff!important;border:0!important;box-shadow:none!important;
+  }
+  .login-card{
+    width:100%!important;max-width:390px!important;max-height:100%!important;overflow-y:auto!important;
+    padding:0!important;margin:0 auto!important;
+  }
+  .login-brand{gap:8px!important;margin-bottom:10px!important}
+  .login-brand img{width:34px!important;height:34px!important}
+  .login-brand strong{font-size:16px!important}
+  .login-brand span{font-size:8px!important;margin-top:1px!important}
+  .login-eyebrow{font-size:8px!important;letter-spacing:.13em!important}
+  .login-card h1{font-size:23px!important;line-height:1.06!important;margin:5px 0!important}
+  .login-sub{font-size:11px!important;line-height:1.35!important;margin:0 0 8px!important;max-width:380px!important}
+  .login-field{margin:7px 0!important}
+  .login-field label{font-size:10px!important;margin-bottom:2px!important}
+  .login-field input{height:32px!important;font-size:12px!important}
+  .login-submit{height:38px!important;margin-top:6px!important;font-size:12px!important}
+  .login-footer{margin-top:8px!important;font-size:9px!important}
+  .login-network-footer{display:none!important}
+}
+@media(max-width:390px){
+  .login-side-panel{inset:54% 0 0 0!important;padding:10px 6% max(9px,env(safe-area-inset-bottom))!important}
+  .login-brand{margin-bottom:7px!important}
+  .login-card h1{font-size:21px!important}
+  .login-sub{font-size:10px!important;margin-bottom:5px!important}
+  .login-field{margin:5px 0!important}
+  .login-field input{height:29px!important}
+  .login-submit{height:35px!important}
+}
+@media(max-height:700px) and (max-width:700px){
+  .login-map-wrap{height:51%!important}
+  .login-side-panel{inset:49% 0 0 0!important;padding-top:8px!important}
+  .login-brand{display:none!important}
+  .login-card h1{font-size:20px!important}
+  .login-sub{margin-bottom:4px!important}
+  .login-field{margin:4px 0!important}
+  .login-field input{height:28px!important}
+}
+
+
+/* ODINX v12: premium light satellite-inspired basemap */
+.odx-satmap{
+ background:#fff!important;
+ border:1px solid #dbe6e1!important;
+ box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),0 8px 22px rgba(16,24,40,.05)!important;
+}
+.odx-satmap svg{background:#f7faf7!important}
+.odx-mapgrid{opacity:.18!important}
+.odx-road{stroke:#fff!important}
+.odx-roadminor{stroke:#c8d3cb!important}
+.odx-map-label{
+ fill:#253b36!important;
+ stroke:#fff!important;
+ stroke-width:3.8px!important;
+ paint-order:stroke fill!important;
+ font-size:10.5px!important;
+ font-weight:850!important;
+}
+.odx-route{stroke:#0891b2!important;stroke-width:2.4!important;opacity:.9!important}
+.odx-route.purple{stroke:#7c3aed!important}
+.odx-route.orange{stroke:#ea580c!important}
+.odx-city-ring{stroke:#ef4444!important}
+.odx-city-ring.ok{stroke:#10b981!important}
+.odx-city-ring.full{stroke:#7c3aed!important}
+.odx-ship{font-size:13px!important;fill:#087e9b!important;filter:drop-shadow(0 1px 2px #fff)!important}
+.odx-scan{opacity:.32!important}
+@media(max-width:520px){
+ .odx-satmap svg{height:245px!important}
+ .odx-map-label{font-size:10px!important}
+}
+
+
+/* ODINX v13: clean white supply-tracking canvas and slimmer vertical charts */
+.odx-mapcol{background:#fff!important}
+.odx-satmap{background:#fff!important;border:1px solid #e5eaf0!important;box-shadow:none!important}
+.odx-satmap svg{background:#fff!important}
+.odx-scan{display:none!important}
+.odx-route{animation-duration:8.5s!important;stroke-width:2px!important;stroke-dasharray:3 8!important}
+.odx-route.purple{animation-duration:10s!important}
+.odx-route.orange{animation-duration:9.5s!important}
+.odx-ship{display:none!important}
+.odx-city-ring{animation-duration:3.5s!important;stroke-width:1.5!important}
+.odx-city-ring.ok{animation-delay:1s!important}
+.odx-city-ring.full{animation-delay:1.7s!important}
+/* Dashboard demand bars: thinner bars with more breathing room */
+.chartbars{gap:18px!important;padding-left:9px!important;padding-right:9px!important}
+.chartbar{flex:0 1 28px!important;min-width:8px!important;max-width:28px!important;border-radius:4px 4px 0 0!important}
+/* Inventory stock columns: narrow the filled column inside each rail */
+.pv-stock-rail{justify-content:center!important;background:repeating-linear-gradient(to top,#f2f4f7 0 1px,transparent 1px 17px)!important}
+.pv-stock-rail i{width:36%!important;min-width:10px!important;border-radius:4px 4px 0 0!important;margin:0 auto!important}
+/* Outcome analytics bars: narrow, evenly spaced vertical columns */
+.pv-outcomes{gap:15px!important;padding-left:10px!important;padding-right:10px!important}
+.pv-outcome-bar{flex:0 1 28px!important;min-width:6px!important;max-width:28px!important;border-radius:4px 4px 0 0!important}
+@media(max-width:700px){
+ .chartbars{gap:8px!important}
+ .chartbar{flex-basis:18px!important;max-width:18px!important}
+ .pv-stock-rail i{width:42%!important}
+ .pv-outcomes{gap:7px!important;padding-left:3px!important;padding-right:3px!important}
+ .pv-outcome-bar{flex-basis:16px!important;max-width:16px!important}
+}
+
+
+/* ODINX v14 HOTFIX: force the actual SVG canvas white, overriding older dark-map rules */
+#odxNetwork .odx-satmap,
+#odxNetwork .odx-mapcol,
+#odxNetwork .odx-satmap svg{background:#fff!important;background-image:none!important;box-shadow:none!important}
+#odxNetwork .odx-satmap svg>rect:first-of-type{fill:#fff!important;stroke:none!important}
+#odxNetwork .odx-satmap svg .odx-label{fill:#344054!important;stroke:#fff!important;stroke-width:2.5px!important;paint-order:stroke fill;opacity:1!important}
+#odxNetwork .odx-satmap svg .odx-flow-line{stroke:#79cddd!important;opacity:1!important;stroke-width:2.2!important;stroke-dasharray:3 8!important;animation:odxFlow 8.5s linear infinite!important}
+#odxNetwork .odx-satmap svg .odx-flow-line.alt{stroke:#a99aee!important;animation-duration:10s!important}
+#odxNetwork .odx-satmap svg .odx-flow-line.warm{stroke:#e8ad6c!important;animation-duration:9.5s!important}
+#odxNetwork .odx-satmap svg .odx-motion{fill:#0891b2!important;stroke:#fff!important}
+
 </style><meta content="yes" name="mobile-web-app-capable"/></head><body>
+<div class="fake-notification-wrap" id="fakeNotificationWrap">
+ <button class="fake-notification-button" id="fakeNotificationButton" type="button" aria-label="Fake notifications" aria-expanded="false" onclick="odinxToggleNotifications(event)">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+  <span class="fake-notification-count" id="fakeNotificationCount">2</span>
+ </button>
+ <div class="fake-notification-popover" id="fakeNotificationPopover" hidden onclick="event.stopPropagation()">
+  <div class="fake-notification-heading">Network notifications <small>DEMO</small></div>
+  <div class="fake-notification-item"><i class="fn-dot cyan"></i><span><b>Flight lane updated</b><small>Delhi NCR → Mumbai · just now</small></span><em>2</em></div>
+  <div class="fake-notification-item"><i class="fn-dot purple"></i><span><b>Inventory pressure alert</b><small>Bengaluru East · 2 min ago</small></span><em>3</em></div>
+  <div class="fake-notification-item"><i class="fn-dot red"></i><span><b>Priority order exception</b><small>Hyderabad hub · 4 min ago</small></span><em>4</em></div>
+  <div class="fake-notification-note">Illustrative demo notifications, not live events.</div>
+ </div>
+</div>
+
 <div aria-labelledby="loginTitle" aria-modal="true" class="login-screen" id="odinxLoginScreen" role="dialog">
 <div aria-hidden="true" class="login-atmosphere"></div>
 <div aria-hidden="true" class="login-map-wrap">
-<svg aria-label="India logistics network with city hubs and animated air lanes" class="login-map" preserveaspectratio="xMidYMid meet" role="img" viewbox="0 0 900 700">
-<defs>
-<lineargradient id="landFill" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#e9f7ff"></stop><stop offset="1" stop-color="#cce8f8"></stop></lineargradient>
-<radialgradient id="mapAura"><stop offset="0" stop-color="#a9ddf7" stop-opacity=".55"></stop><stop offset="1" stop-color="#a9ddf7" stop-opacity="0"></stop></radialgradient>
-<filter id="routeGlow"><fegaussianblur stddeviation="2.2"></fegaussianblur></filter>
-</defs>
-<ellipse cx="425" cy="365" fill="url(#mapAura)" rx="380" ry="325"></ellipse>
-<!-- Simplified but geographically coherent mainland silhouette, aligned to city coordinates -->
-<path class="india-land" d="M245 110 L273 91 L299 101 L322 86 L346 105 L374 113 L390 132 L411 142 L426 163 L445 176 L456 195 L481 208 L494 227 L512 237 L529 252 L546 264 L559 280 L580 286 L595 301 L615 305 L628 320 L651 325 L671 338 L685 355 L675 371 L653 372 L637 361 L617 357 L601 369 L588 386 L573 403 L560 426 L548 444 L534 461 L523 483 L509 504 L495 524 L480 549 L464 572 L447 598 L431 620 L415 641 L401 654 L387 644 L376 625 L364 604 L353 582 L343 557 L333 534 L323 509 L311 489 L298 468 L285 451 L276 431 L263 415 L252 396 L240 379 L230 360 L220 342 L211 324 L203 306 L197 288 L202 271 L213 255 L222 239 L228 221 L233 201 L237 182 L241 163 L244 143 Z" fill="url(#landFill)"></path>
-<!-- Internal regional hints -->
-<path class="india-state-lines" d="M244 163 L284 180 L307 211 L306 245 L330 269 L357 285 L373 315 L359 345 L379 369 M203 306 L246 302 L280 321 L300 350 L323 376 M252 396 L290 388 L319 412 L340 439 L359 465 M323 509 L358 491 L389 505 L415 488 M330 269 L365 247 L400 257 L433 282 L464 296 M445 176 L435 209 L456 231 L481 246"></path>
-<!-- Flight corridors between correctly positioned Indian city hubs -->
-<g>
-<path class="flight-route" d="M306 232 Q277 330 210 415" id="r-del-mum"></path><path class="flight-route glow" d="M306 232 Q277 330 210 415"></path>
-<path class="flight-route" d="M210 415 Q263 471 315 534" id="r-mum-blr"></path>
-<path class="flight-route secondary" d="M315 534 Q350 491 335 448" id="r-blr-hyd"></path>
-<path class="flight-route" d="M335 448 Q365 478 375 532" id="r-hyd-chn"></path>
-<path class="flight-route secondary" d="M375 532 Q476 443 557 348" id="r-chn-kol"></path>
-<path class="flight-route" d="M557 348 Q450 267 306 232" id="r-kol-del"></path>
-<path class="flight-route secondary" d="M232 427 Q220 418 210 415" id="r-pun-mum"></path>
-<path class="flight-route secondary" d="M203 340 Q240 274 306 232" id="r-ahm-del"></path>
-<path class="flight-route" d="M315 534 Q270 480 232 427" id="r-blr-pun"></path>
-<g class="flight-plane"><text font-size="22">✈</text><animatemotion dur="8s" repeatcount="indefinite" rotate="auto"><mpath href="#r-del-mum"></mpath></animatemotion></g>
-<g class="flight-plane purple"><text font-size="22">✈</text><animatemotion begin="-3s" dur="10s" repeatcount="indefinite" rotate="auto"><mpath href="#r-mum-blr"></mpath></animatemotion></g>
-<g class="flight-plane"><text font-size="21">✈</text><animatemotion begin="-1s" dur="6s" repeatcount="indefinite" rotate="auto"><mpath href="#r-blr-hyd"></mpath></animatemotion></g>
-<g class="flight-plane purple"><text font-size="21">✈</text><animatemotion begin="-4s" dur="8.5s" repeatcount="indefinite" rotate="auto"><mpath href="#r-hyd-chn"></mpath></animatemotion></g>
-<g class="flight-plane"><text font-size="22">✈</text><animatemotion begin="-5s" dur="11s" repeatcount="indefinite" rotate="auto"><mpath href="#r-chn-kol"></mpath></animatemotion></g>
-<g class="flight-plane purple"><text font-size="21">✈</text><animatemotion begin="-7s" dur="12s" repeatcount="indefinite" rotate="auto"><mpath href="#r-kol-del"></mpath></animatemotion></g>
-<g class="flight-plane"><text font-size="20">✈</text><animatemotion begin="-2s" dur="5.5s" repeatcount="indefinite" rotate="auto"><mpath href="#r-pun-mum"></mpath></animatemotion></g>
-<g class="flight-plane purple"><text font-size="20">✈</text><animatemotion begin="-2.8s" dur="9s" repeatcount="indefinite" rotate="auto"><mpath href="#r-ahm-del"></mpath></animatemotion></g>
-<g class="flight-plane"><text font-size="20">✈</text><animatemotion begin="-6s" dur="10s" repeatcount="indefinite" rotate="auto"><mpath href="#r-blr-pun"></mpath></animatemotion></g>
+<svg aria-label="Full-screen animated aircraft travelling between city hubs" class="login-map login-map-desktop" preserveAspectRatio="none" role="img" viewBox="0 0 1440 900">
+<defs><linearGradient id="skyLine" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19a8db" stop-opacity=".72"/><stop offset="1" stop-color="#7657dc" stop-opacity=".66"/></linearGradient><filter id="planeGlow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g class="flight-corridors">
+<path id="d-del-mum" class="flight-route" d="M500 160 Q430 290 300 430"/><path id="d-mum-blr" class="flight-route purple" d="M300 430 Q380 560 500 690"/><path id="d-blr-chn" class="flight-route" d="M500 690 Q620 730 690 640"/><path id="d-chn-kol" class="flight-route purple" d="M690 640 Q920 480 1120 340"/><path id="d-kol-del" class="flight-route" d="M1120 340 Q850 90 500 160"/><path id="d-ahm-del" class="flight-route purple" d="M270 300 Q360 200 500 160"/><path id="d-pun-hyd" class="flight-route" d="M410 470 Q560 470 650 510"/><path id="d-hyd-blr" class="flight-route purple" d="M650 510 Q590 610 500 690"/><path id="d-jaipur-kol" class="flight-route" d="M620 260 Q850 250 1120 340"/><path id="d-kochi-mum" class="flight-route purple" d="M430 810 Q270 620 300 430"/><path id="d-east-chn" class="flight-route" d="M1120 340 Q900 500 690 640"/>
 </g>
-<!-- City markers and legible labels; labels are kept near their own hubs -->
-<g class="city" transform="translate(306 232)"><circle class="city-halo" r="15"></circle><circle class="city-dot" r="6"></circle><text class="city-label" x="12" y="-10">DELHI NCR</text><text class="city-meta" x="12" y="4">North hub · 98 flights</text></g>
-<g class="city" transform="translate(210 415)"><circle class="city-halo" r="15"></circle><circle class="city-dot" r="6"></circle><text class="city-label" text-anchor="end" x="-12" y="-15">MUMBAI</text><text class="city-meta" text-anchor="end" x="-12" y="-2">West DC · 142 flights</text></g>
-<g class="city" transform="translate(232 427)"><circle class="city-halo" r="13"></circle><circle class="city-dot" r="5"></circle><text class="city-label" x="10" y="18">PUNE</text></g>
-<g class="city" transform="translate(203 340)"><circle class="city-halo" r="13"></circle><circle class="city-dot" r="5"></circle><text class="city-label" text-anchor="end" x="-10" y="-12">AHMEDABAD</text></g>
-<g class="city" transform="translate(335 448)"><circle class="city-halo hot" r="15"></circle><circle class="city-dot hot" r="6"></circle><text class="city-label" text-anchor="end" x="-12" y="-16">HYDERABAD</text><text class="city-meta" text-anchor="end" x="-12" y="-2">Low cover · watch</text></g>
-<g class="city" transform="translate(315 534)"><circle class="city-halo hot" r="15"></circle><circle class="city-dot hot" r="6"></circle><text class="city-label" x="12" y="-8">BENGALURU</text><text class="city-meta" x="12" y="6">Demand surge · +32%</text></g>
-<g class="city" transform="translate(375 532)"><circle class="city-halo" r="13"></circle><circle class="city-dot" r="5"></circle><text class="city-label" x="12" y="19">CHENNAI</text></g>
-<g class="city" transform="translate(557 348)"><circle class="city-halo" r="15"></circle><circle class="city-dot" r="6"></circle><text class="city-label" x="12" y="-10">KOLKATA</text><text class="city-meta" x="12" y="4">East hub</text></g>
+<g class="city-node" transform="translate(500 160)"><circle r="10"/><text x="16" y="-12">DELHI NCR</text></g>
+<g class="city-node" transform="translate(270 300)"><circle r="8"/><text x="-14" y="-14" text-anchor="end">AHMEDABAD</text></g>
+<g class="city-node" transform="translate(300 430)"><circle r="10"/><text x="-16" y="-17" text-anchor="end">MUMBAI</text></g>
+<g class="city-node" transform="translate(410 470)"><circle r="8"/><text x="-8" y="26" text-anchor="end">PUNE</text></g>
+<g class="city-node hot" transform="translate(650 510)"><circle r="10"/><text x="16" y="-16">HYDERABAD</text></g>
+<g class="city-node hot" transform="translate(500 690)"><circle r="10"/><text x="-18" y="-18" text-anchor="end">BENGALURU</text></g>
+<g class="city-node" transform="translate(690 640)"><circle r="9"/><text x="16" y="25">CHENNAI</text></g>
+<g class="city-node" transform="translate(1120 340)"><circle r="10"/><text x="16" y="-15">KOLKATA</text></g>
+<g class="city-node" transform="translate(620 260)"><circle r="8"/><text x="16" y="-14">JAIPUR</text></g>
+<g class="city-node" transform="translate(430 810)"><circle r="8"/><text x="15" y="24">KOCHI</text></g>
+<g class="moving-plane"><text>✈</text><animateMotion dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#d-del-mum"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-2s" dur="10s" repeatCount="indefinite" rotate="auto"><mpath href="#d-mum-blr"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-4s" dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#d-blr-chn"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-3s" dur="12s" repeatCount="indefinite" rotate="auto"><mpath href="#d-chn-kol"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-6s" dur="13s" repeatCount="indefinite" rotate="auto"><mpath href="#d-kol-del"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-1s" dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#d-ahm-del"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-3.5s" dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#d-pun-hyd"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-5s" dur="9s" repeatCount="indefinite" rotate="auto"><mpath href="#d-hyd-blr"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-7s" dur="11s" repeatCount="indefinite" rotate="auto"><mpath href="#d-jaipur-kol"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-2.5s" dur="10s" repeatCount="indefinite" rotate="auto"><mpath href="#d-kochi-mum"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-8s" dur="11s" repeatCount="indefinite" rotate="auto"><mpath href="#d-east-chn"/></animateMotion></g>
+</svg>
+<svg aria-label="Full-screen mobile aircraft animation" class="login-map login-map-mobile" preserveAspectRatio="none" role="img" viewBox="0 0 430 900">
+<g class="flight-corridors">
+<path id="m-del-mum" class="flight-route" d="M170 210 Q110 300 75 395"/><path id="m-mum-hyd" class="flight-route purple" d="M75 395 Q175 440 240 505"/><path id="m-hyd-blr" class="flight-route" d="M240 505 Q210 600 180 675"/><path id="m-blr-chn" class="flight-route purple" d="M180 675 Q270 690 305 620"/><path id="m-chn-kol" class="flight-route" d="M305 620 Q385 450 350 330"/><path id="m-kol-del" class="flight-route purple" d="M350 330 Q290 230 170 210"/><path id="m-ahm-del" class="flight-route" d="M65 300 Q110 240 170 210"/><path id="m-pun-mum" class="flight-route purple" d="M130 430 Q100 415 75 395"/><path id="m-jaipur-kol" class="flight-route" d="M255 275 Q315 290 350 330"/><path id="m-kochi-blr" class="flight-route purple" d="M105 790 Q150 730 180 675"/><path id="m-hyd-chn" class="flight-route" d="M240 505 Q290 560 305 620"/>
+</g>
+<g class="city-node" transform="translate(170 210)"><circle r="8"/><text x="12" y="-12">DELHI NCR</text></g>
+<g class="city-node" transform="translate(65 300)"><circle r="7"/><text x="-8" y="-12" text-anchor="end">AHMEDABAD</text></g>
+<g class="city-node" transform="translate(75 395)"><circle r="8"/><text x="-12" y="-15" text-anchor="end">MUMBAI</text></g>
+<g class="city-node" transform="translate(130 430)"><circle r="7"/><text x="-8" y="22" text-anchor="end">PUNE</text></g>
+<g class="city-node hot" transform="translate(240 505)"><circle r="8"/><text x="12" y="-14">HYDERABAD</text></g>
+<g class="city-node hot" transform="translate(180 675)"><circle r="8"/><text x="-12" y="-14" text-anchor="end">BENGALURU</text></g>
+<g class="city-node" transform="translate(305 620)"><circle r="8"/><text x="12" y="22">CHENNAI</text></g>
+<g class="city-node" transform="translate(350 330)"><circle r="8"/><text x="12" y="-12">KOLKATA</text></g>
+<g class="city-node" transform="translate(255 275)"><circle r="7"/><text x="12" y="-10">JAIPUR</text></g>
+<g class="city-node" transform="translate(105 790)"><circle r="7"/><text x="12" y="20">KOCHI</text></g>
+<g class="moving-plane"><text>✈</text><animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#m-del-mum"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-2s" dur="9s" repeatCount="indefinite" rotate="auto"><mpath href="#m-mum-hyd"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-3s" dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#m-hyd-blr"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-1s" dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#m-blr-chn"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-4s" dur="10s" repeatCount="indefinite" rotate="auto"><mpath href="#m-chn-kol"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-5s" dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#m-kol-del"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-2.5s" dur="6s" repeatCount="indefinite" rotate="auto"><mpath href="#m-ahm-del"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-6s" dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#m-pun-mum"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-7s" dur="9s" repeatCount="indefinite" rotate="auto"><mpath href="#m-jaipur-kol"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-3.5s" dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#m-kochi-blr"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-4.5s" dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#m-hyd-chn"/></animateMotion></g>
 </svg>
 </div>
 <div class="air-radar"><span class="radar-dot"></span><span>INDIA NETWORK · LIVE TRAFFIC VIEW</span><span style="color:#93a8b8;font-weight:600">/ SIMULATED</span></div>
-<div class="login-map-caption"><div class="eyebrow">AGENTIC COMMERCE ORCHESTRATION</div><h2>Every route.<br/>Every node.<br/>One intelligent network.</h2><p>Track moving lanes, spot inventory pressure and coordinate fulfilment across a connected commerce network.</p></div>
+<div class="login-map-caption"><div class="eyebrow">AGENTIC COMMERCE ORCHESTRATION</div></div>
 <div aria-hidden="true" class="air-stat-strip"><div class="air-stat"><small>Active air lanes</small><strong id="loginFlights">428 <em>↗ 6.2%</em></strong></div><div class="air-stat"><small>Nodes reporting</small><strong id="loginNodes">42 / 48</strong></div><div class="air-stat"><small>Priority shortages</small><strong id="loginShortages">07 <em style="color:#c24150">need action</em></strong></div><div class="air-stat"><small>Orders in motion</small><strong id="loginOrders">12,846</strong></div></div>
 <div class="login-side-panel">
 <form autocomplete="on" class="login-card" id="odinxLoginForm" onsubmit="return odinxLogin(event)">
 <div class="login-brand"><img alt="Odinx logo" onerror="this.style.display='none'" src="logo.png"/><div><strong>ODINX</strong><span>AGENTIC COMMERCE ORCHESTRATION</span></div></div>
-<div class="login-eyebrow">Private workspace</div>
 <h1 id="loginTitle">Welcome back</h1>
-<p class="login-sub">Sign in to access the commerce control tower, network intelligence and operational workflows.</p>
 <div class="login-field"><label for="odinxEmail">Email address</label><input autocomplete="username" id="odinxEmail" inputmode="email" name="username" placeholder="Enter your email" required="" type="email"/></div>
 <div class="login-field"><label for="odinxPassword">Password</label><div class="login-password-wrap"><input autocomplete="current-password" id="odinxPassword" name="password" placeholder="Enter your password" required="" type="password"/><button class="login-show-pass" onclick="odinxTogglePassword()" type="button">Show</button></div></div>
 <button class="login-submit" type="submit">Sign in securely <span aria-hidden="true">→</span></button>
@@ -516,13 +918,56 @@ pre,code{white-space:pre-wrap;overflow-wrap:anywhere;}
 </div>
 </div>
 <div class="app"><aside class="sidebar" id="sidebar"><div class="brand"><img alt="Odinx logo" class="brand-logo-img" onerror="this.style.display='none'" src="logo.png"/><div><strong>ODINX <span style="color:var(--cyan)">ORCHESTRATION</span></strong><small>AGENTIC COMMERCE INTELLIGENCE</small></div></div><div><div class="navlabel">Workspace</div><nav class="nav" id="nav"></nav></div><div class="sidebottom"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:12px">Network operations</b><span class="status s-green">ACTIVE</span></div><small style="display:block;margin-top:8px">Commerce network telemetry · Continuous simulation</small><div style="margin-top:12px;height:4px;border-radius:5px;background:#29354c"><div style="width:68%;height:100%;background:var(--cyan);border-radius:5px"></div></div><small style="display:block;margin-top:6px">Pilot setup 68% configured</small></div></aside>
-<main class="main"><header class="topbar"><div style="display:flex;align-items:center;gap:12px"><button class="mobilemenu" onclick="toggleMenu()">☰</button><div><div class="crumb">Odinx / <span id="crumb">Overview</span></div><div style="font-weight:750;font-size:13px;margin-top:3px">5PL Agentic Commerce Orchestration</div></div></div><div class="topright"><span class="pill"><span class="live-dot"></span> NETWORK LIVE</span><span class="pill hide-mobile"><span class="dot"></span> Systems nominal</span><div class="avatar">OX</div><button class="hide-mobile" onclick="odinxLogout()" title="Sign out">Sign out</button></div></header><section class="content" id="view"></section></main></div><div id="toastbox"></div><div id="modalroot"></div>
+<main class="main"><header class="topbar"><div style="display:flex;align-items:center;gap:12px"><button class="mobilemenu" onclick="toggleMenu()">☰</button><div><div class="crumb">Odinx / <span id="crumb">Overview</span></div><div style="font-weight:750;font-size:13px;margin-top:3px">Agentic Commerce</div></div></div><div class="topright"><span class="pill"><span class="live-dot"></span>LIVE</span><span class="pill hide-mobile"><span class="dot"></span> Systems nominal</span><div class="avatar">ODY</div><button class="demo-logout" onclick="event.stopPropagation();odinxLogout()" title="Fake demo logout">Log out</button></div></header><section class="content" id="view"></section></main></div><div id="toastbox"></div><div id="modalroot"></div>
 <script>
 const navItems=[['Overview','◫','Workspace'],['Demand Intelligence','↗','Intelligence'],['Inventory Intelligence','▦','Intelligence'],['Demand-Supply Matching','⇄','Intelligence'],['Inventory Placement','⌖','Orchestration'],['Replenishment & Movement','⇢','Orchestration'],['Fulfilment & Carriers','⌁','Orchestration'],['Exception Management','⚠','Operations'],['AI Agent Centre','✳','Operations'],['Approvals & Actions','✓','Operations'],['Outcome Analytics','▥','Measurement'],['Data Sources','⌘','Configuration'],['Pilot Setup','⚙','Configuration']];let active='Overview';let approved=0,rejected=0,executed=0,simulationRuns=0;let recs=[{id:'REC-1042',title:'Reposition SKU-COF-250 to Bangalore East',type:'Inventory movement',priority:'High',from:'Mumbai DC',to:'Bangalore East',qty:450,impact:'+8.7%',reason:'Demand velocity is 32% above baseline and local cover is down to 2.4 days.',status:'Pending approval'},{id:'REC-1043',title:'Reduce paid demand activation for SKU-SER-100',type:'Demand activation',priority:'Medium',from:'Campaign budget',to:'Inventory clearance',qty:120,impact:'₹1.8L protected',reason:'Ageing stock is above threshold in Pune. Pause acquisition spend and recommend a clearance offer.',status:'Pending approval'},{id:'REC-1044',title:'Route at-risk orders via Carrier Blue',type:'Carrier allocation',priority:'High',from:'Carrier Swift',to:'Carrier Blue',qty:86,impact:'-14% breach risk',reason:'Carrier Swift lane breach rate has increased to 12.4%; alternative has spare capacity.',status:'Pending approval'}];
 const demand=[['SKU-COF-250','Coffee 250g','Bangalore East','D2C',1280,32,'High'],['SKU-SER-100','Serum 100ml','Pune','Marketplace',860,18,'High'],['SKU-PRO-1K','Protein 1kg','Delhi NCR','Quick commerce',720,11,'Medium'],['SKU-SNK-12','Snack Box 12ct','Mumbai','D2C',640,-7,'Low'],['SKU-TEA-500','Green Tea 500g','Hyderabad','Marketplace',520,5,'Medium']];const inventory=[['SKU-COF-250','Coffee 250g','Bangalore East',180,540,2.4, 'Stock-out risk'],['SKU-SER-100','Serum 100ml','Pune',920,420,21.9,'Ageing risk'],['SKU-PRO-1K','Protein 1kg','Delhi NCR',410,390,8.2,'Healthy'],['SKU-SNK-12','Snack Box 12ct','Mumbai',1380,510,27.1,'Excess stock'],['SKU-TEA-500','Green Tea 500g','Hyderabad',290,300,6.8,'Replenish']];const exceptions=[['EX-2081','SLA breach risk','Order ORD-77129','Bangalore East','High','Carrier delay','Open'],['EX-2080','Inventory mismatch','SKU-COF-250','Bangalore East','High','WMS vs OMS: 42 units','Open'],['EX-2079','RTO spike','Lane DEL → LKO','North','Medium','RTO rose to 11.8%','Investigating'],['EX-2078','Ageing inventory','SKU-SER-100','Pune','Medium','84 units > 90 days','Open'],['EX-2077','Pickup failure','Order ORD-77088','Mumbai','Low','First pickup attempt failed','Resolved']];
-function statusClass(s){s=String(s).toLowerCase();return s.includes('high')||s.includes('stock-out')||s.includes('open')?'s-red':s.includes('medium')||s.includes('risk')||s.includes('pending')||s.includes('investigating')?'s-yellow':s.includes('healthy')||s.includes('resolved')||s.includes('approved')||s.includes('executed')?'s-green':'s-blue'}function badge(s){return `<span class="status ${statusClass(s)}">${s}</span>`}function kpi(label,value,delta,cls=''){return `<div class="card"><div class="kpi-label">${label}</div><div class="kpi-value">${value}</div><div class="delta ${cls}">${delta}</div></div>`}function card(title,body,extra=''){return `<div class="card"><div class="cardhead"><h3>${title}</h3>${extra}</div>${body}</div>`}function table(headers,rows){return `<div class="tablewrap"><table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`}function bar(label,width,val){return `<div class="barrow"><span>${label}</span><div class="barbg"><div class="barfill" style="width:${width}%"></div></div><b>${val}</b></div>`}const odxCities=[{name:'Bangalore East',stock:18,units:1820,demand:1240,state:'SHORTAGE',tone:'red',x:315,y:176},{name:'Mumbai DC',stock:91,units:8420,demand:4380,state:'HIGH CAPACITY',tone:'full',x:105,y:144},{name:'Pune',stock:68,units:3620,demand:2280,state:'HEALTHY',tone:'ok',x:151,y:95},{name:'Delhi NCR',stock:54,units:2940,demand:2510,state:'BALANCED',tone:'ok',x:230,y:55},{name:'Hyderabad',stock:27,units:1620,demand:1310,state:'LOW COVER',tone:'red',x:250,y:213}];let odxTickCount=0,odxPaused=false,odxTimer=null,odxEvents=[];
+function statusClass(s){s=String(s).toLowerCase();return s.includes('high')||s.includes('stock-out')||s.includes('open')?'s-red':s.includes('medium')||s.includes('risk')||s.includes('pending')||s.includes('investigating')?'s-yellow':s.includes('healthy')||s.includes('resolved')||s.includes('approved')||s.includes('executed')?'s-green':'s-blue'}function badge(s){return `<span class="status ${statusClass(s)}">${s}</span>`}function kpi(label,value,delta,cls=''){return `<div class="card"><div class="kpi-label">${label}</div><div class="kpi-value">${value}</div><div class="delta ${cls}">${delta}</div></div>`}function card(title,body,extra=''){return `<div class="card"><div class="cardhead"><h3>${title}</h3>${extra}</div>${body}</div>`}function table(headers,rows){return `<div class="tablewrap"><table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`}function bar(label,width,val){return `<div class="barrow"><span>${label}</span><div class="barbg"><div class="barfill" style="width:${width}%"></div></div><b>${val}</b></div>`}const odxCities=[{name:'Bengaluru East',stock:18,units:1820,demand:1240,state:'SHORTAGE',tone:'red',x:315,y:176},{name:'Mumbai DC',stock:91,units:8420,demand:4380,state:'HIGH CAPACITY',tone:'full',x:105,y:144},{name:'Pune',stock:68,units:3620,demand:2280,state:'HEALTHY',tone:'ok',x:151,y:95},{name:'Delhi NCR',stock:54,units:2940,demand:2510,state:'BALANCED',tone:'ok',x:230,y:55},{name:'Hyderabad',stock:27,units:1620,demand:1310,state:'LOW COVER',tone:'red',x:250,y:213},{name:'Chennai',stock:62,units:2840,demand:1940,state:'HEALTHY',tone:'ok',x:334,y:235},{name:'Kolkata',stock:47,units:3160,demand:2110,state:'BALANCED',tone:'ok',x:365,y:92}];let odxTickCount=0,odxPaused=false,odxTimer=null,odxEvents=[];
 const odxPageInsights={Overview:'Network-wide demand and supply telemetry', 'Demand Intelligence':'Demand velocity and emerging city-level clusters','Inventory Intelligence':'Available stock, cover and shortage propagation','Demand-Supply Matching':'Demand-to-fulfillable-supply gap analysis','Inventory Placement':'Network placement and capacity balancing','Replenishment & Movement':'Stock movement routes and transfer priorities','Fulfilment & Carriers':'Carrier capacity, lane health and SLA monitoring','Exception Management':'Live exception detection and resolution status','AI Agent Centre':'Agent signals, diagnosis and recommended interventions','Approvals & Actions':'Decision queue and controlled action execution','Outcome Analytics':'Demand captured, service level and intervention impact','Data Sources':'Source freshness, sync health and data quality','Pilot Setup':'Readiness gates and operating policy'};
-function networkPanel(){return `<section class="odx-network ${odxPaused?'odx-paused':''}" id="odxNetwork"><div class="odx-mapcol"><div class="odx-maphead"><div><div class="eyebrow">ODINX NETWORK TELEMETRY</div><h3>City logistics · live network view</h3><p id="odxMapSubtitle">${odxPageInsights[active]||'Network activity and inventory signals'}</p></div><span class="odx-livepill"><span class="live-dot"></span><span id="odxStreamState">NETWORK ACTIVE</span></span></div><div class="odx-satmap"><div class="odx-scan"></div><svg viewBox="0 0 420 270" role="img" aria-label="Animated city inventory and logistics network map"><defs><pattern id="odxBlocks" width="24" height="24" patternUnits="userSpaceOnUse"><rect x="2" y="2" width="15" height="12" rx="2" fill="#d8e3e8"/><rect x="18" y="16" width="4" height="5" rx="1" fill="#d2dfe5"/></pattern><linearGradient id="odxGround" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e6eef1"/><stop offset="1" stop-color="#d9e6e8"/></linearGradient></defs><rect width="420" height="270" fill="url(#odxGround)"/><rect width="420" height="270" fill="url(#odxBlocks)" opacity=".8"/><path class="odx-road" d="M-10 190 C65 160 92 205 155 150 S265 70 440 108 M20 -10 C78 55 128 80 205 105 S310 210 390 280 M-10 78 C85 95 140 50 205 52 S325 160 440 175"/><path class="odx-roadminor" d="M-10 190 C65 160 92 205 155 150 S265 70 440 108 M20 -10 C78 55 128 80 205 105 S310 210 390 280 M-10 78 C85 95 140 50 205 52 S325 160 440 175"/><path class="odx-roadminor" d="M55 0 L35 270 M115 0 L135 270 M180 0 L165 270 M270 0 L290 270 M355 0 L335 270 M0 125 L420 132 M0 230 L420 222"/><path class="odx-route" d="M105 144 Q190 115 315 176"/><path class="odx-route purple" d="M151 95 Q180 60 230 55"/><path class="odx-route orange" d="M250 213 Q282 204 315 176"/><path class="odx-route" d="M105 144 Q185 185 250 213"/><g class="odx-ship"><text x="190" y="121">▰</text><text x="184" y="80">▰</text><text x="282" y="201">▰</text></g><g id="odxMapNodes"><g transform="translate(105 144)"><circle r="10" class="odx-city-ring full"/><circle r="6" fill="#7c3aed" class="odx-city-dot"/><text x="-35" y="-16" class="odx-map-label">MUMBAI DC</text></g><g transform="translate(151 95)"><circle r="10" class="odx-city-ring ok"/><circle r="6" fill="#10b981" class="odx-city-dot"/><text x="-17" y="-16" class="odx-map-label">PUNE</text></g><g transform="translate(230 55)"><circle r="10" class="odx-city-ring ok"/><circle r="6" fill="#10b981" class="odx-city-dot"/><text x="-25" y="-16" class="odx-map-label">DELHI NCR</text></g><g transform="translate(250 213)"><circle r="10" class="odx-city-ring"/><circle r="6" fill="#ef4444" class="odx-city-dot"/><text x="-28" y="-16" class="odx-map-label">HYDERABAD</text></g><g transform="translate(315 176)"><circle r="10" class="odx-city-ring"/><circle r="6" fill="#ef4444" class="odx-city-dot"/><text x="-50" y="-17" class="odx-map-label">BENGALURU</text></g></g></svg></div><div class="odx-citylist">${odxCities.map((c,i)=>`<div class="odx-city"><div class="odx-citytop"><strong>${c.name}</strong><span class="status ${c.tone==='red'?'s-red':c.tone==='full'?'s-purple':'s-green'}" id="odxState${i}">${c.state}</span></div><div class="odx-stockbar"><div class="odx-stockfill" id="odxFill${i}" style="width:${c.stock}%;background:${c.tone==='red'?'#ef4444':c.tone==='full'?'#7c3aed':'#10b981'}"></div></div><div class="odx-cityfoot"><span>Inventory health <b id="odxPct${i}">${c.stock}%</b></span><span><b id="odxUnits${i}">${c.units.toLocaleString()}</b> units</span></div></div>`).join('')}</div><div class="odx-mapactions"><button class="primary" onclick="odxRunCycle()">Run network cycle</button><button onclick="odxToggle()" id="odxToggleBtn">${odxPaused?'Resume live network':'Pause live network'}</button><button onclick="odxRebalance()">Simulate rebalancing</button></div><div class="odx-pagecontext">Active workspace: <b>${active}</b> · City inventory and route telemetry refresh continuously</div></div><div class="odx-right"><div class="odx-righthead"><h3>Network performance</h3><span class="muted" id="odxClock">--:--:--</span></div><div class="odx-pulsemetrics"><div class="odx-pulsemetric"><small>Orders processed</small><strong id="odxOrders">1,284</strong><em>↗ stream updates</em></div><div class="odx-pulsemetric warn"><small>Inventory at risk</small><strong id="odxRisk">2 cities</strong><em id="odxRiskNote">Shortage watch</em></div><div class="odx-pulsemetric"><small>On-time SLA</small><strong id="odxSla">94.7%</strong><em>rolling estimate</em></div><div class="odx-pulsemetric"><small>Active movements</small><strong id="odxMoves">18</strong><em>route telemetry</em></div></div><div class="odx-livefeed"><div class="odx-livefeed-title"><span>Live operations feed</span><span class="status s-green" id="odxEventCount">STREAMING</span></div><div id="odxFeed"><div class="odx-feeditem"><span class="odx-feeddot"></span><div><b>Network telemetry initialized</b><small>City inventory and route state loaded</small></div><time>now</time></div></div></div></div></section>`}
+function networkPanel(){return `<section class="odx-network ${odxPaused?'odx-paused':''}" id="odxNetwork"><div class="odx-mapcol"><div class="odx-maphead"><div><div class="eyebrow">ODINX NETWORK TELEMETRY</div><h3>City logistics · live network view</h3><p id="odxMapSubtitle">${odxPageInsights[active]||'Network activity and inventory signals'}</p></div><span class="odx-livepill"><span class="live-dot"></span><span id="odxStreamState">NETWORK ACTIVE</span></span></div><div class="odx-satmap"><div class="odx-scan"></div><svg viewBox="0 0 420 270" role="img" aria-label="Pure white ODINX supply tracking view connecting Delhi NCR, Mumbai, Pune, Hyderabad, Bengaluru, Chennai and Kolkata">
+<defs>
+  <style>
+    .odx-flow-line{fill:none;stroke:#9bddea;stroke-width:2;stroke-linecap:round;stroke-dasharray:3 8;animation:odxFlow 8.5s linear infinite}
+    .odx-flow-line.alt{stroke:#c8b8fb;animation-duration:10s}
+    .odx-flow-line.warm{stroke:#f6c38b;animation-duration:9.5s}
+    .odx-label{font:750 11px Inter,system-ui,sans-serif;fill:#344054}
+    .odx-dot{fill:#0891b2;stroke:#fff;stroke-width:2}
+    .odx-dot.good{fill:#10b981}.odx-dot.full{fill:#7c3aed}.odx-dot.risk{fill:#ef4444}
+    .odx-motion{fill:#0891b2;stroke:#fff;stroke-width:1.4}
+    @keyframes odxFlow{to{stroke-dashoffset:-88}}
+    @media(prefers-reduced-motion:reduce){.odx-flow-line{animation:none}}
+  </style>
+</defs>
+<rect width="420" height="270" rx="10" fill="#fff"/>
+<!-- Minimal dotted routes. No map silhouette, terrain, roads, grid, or satellite textures. -->
+<path id="odxRouteMumbaiPune" class="odx-flow-line" d="M62 156 Q92 113 112 108"/>
+<path id="odxRoutePuneDelhi" class="odx-flow-line alt" d="M112 108 Q147 67 198 56"/>
+<path id="odxRouteMumbaiHyderabad" class="odx-flow-line" d="M62 156 Q127 176 215 213"/>
+<path id="odxRouteHyderabadBengaluru" class="odx-flow-line warm" d="M215 213 Q247 193 277 176"/>
+<path id="odxRouteBengaluruChennai" class="odx-flow-line" d="M277 176 Q298 208 304 236"/>
+<path id="odxRouteDelhiKolkata" class="odx-flow-line alt" d="M198 56 Q282 45 344 92"/>
+<path id="odxRouteKolkataChennai" class="odx-flow-line" d="M344 92 Q335 171 304 236"/>
+<path id="odxRoutePuneBengaluru" class="odx-flow-line alt" d="M112 108 Q195 119 277 176"/>
+<!-- Slow moving supply packets -->
+<circle r="4.2" class="odx-motion"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#odxRouteMumbaiPune"/></animateMotion></circle>
+<circle r="4.2" class="odx-motion"><animateMotion dur="12s" begin="-4s" repeatCount="indefinite"><mpath href="#odxRoutePuneDelhi"/></animateMotion></circle>
+<circle r="4.2" class="odx-motion"><animateMotion dur="13s" begin="-6s" repeatCount="indefinite"><mpath href="#odxRouteMumbaiHyderabad"/></animateMotion></circle>
+<circle r="4.2" class="odx-motion"><animateMotion dur="10s" begin="-3s" repeatCount="indefinite"><mpath href="#odxRouteHyderabadBengaluru"/></animateMotion></circle>
+<circle r="4.2" class="odx-motion"><animateMotion dur="12s" begin="-7s" repeatCount="indefinite"><mpath href="#odxRouteBengaluruChennai"/></animateMotion></circle>
+<circle r="4.2" class="odx-motion"><animateMotion dur="14s" begin="-5s" repeatCount="indefinite"><mpath href="#odxRouteDelhiKolkata"/></animateMotion></circle>
+<circle r="4.2" class="odx-motion"><animateMotion dur="15s" begin="-9s" repeatCount="indefinite"><mpath href="#odxRouteKolkataChennai"/></animateMotion></circle>
+<circle r="4.2" class="odx-motion"><animateMotion dur="13s" begin="-2s" repeatCount="indefinite"><mpath href="#odxRoutePuneBengaluru"/></animateMotion></circle>
+<!-- City hubs and readable labels -->
+<g id="odxMapNodes">
+ <g transform="translate(62 156)"><circle r="12" fill="#f3e8ff"/><circle r="7" class="odx-dot full"/><text x="0" y="-19" text-anchor="middle" class="odx-label">MUMBAI DC</text></g>
+ <g transform="translate(112 108)"><circle r="12" fill="#d1fae5"/><circle r="7" class="odx-dot good"/><text x="-3" y="-18" text-anchor="middle" class="odx-label">PUNE</text></g>
+ <g transform="translate(198 56)"><circle r="12" fill="#d1fae5"/><circle r="7" class="odx-dot good"/><text x="0" y="-18" text-anchor="middle" class="odx-label">DELHI NCR</text></g>
+ <g transform="translate(215 213)"><circle r="12" fill="#fee2e2"/><circle r="7" class="odx-dot risk"/><text x="0" y="-18" text-anchor="middle" class="odx-label">HYDERABAD</text></g>
+ <g transform="translate(277 176)"><circle r="12" fill="#fee2e2"/><circle r="7" class="odx-dot risk"/><text x="-2" y="-19" text-anchor="middle" class="odx-label">BENGALURU</text></g>
+ <g transform="translate(304 236)"><circle r="12" fill="#d1fae5"/><circle r="7" class="odx-dot good"/><text x="-8" y="22" text-anchor="end" class="odx-label">CHENNAI</text></g>
+ <g transform="translate(344 92)"><circle r="12" fill="#d1fae5"/><circle r="7" class="odx-dot good"/><text x="-1" y="-19" text-anchor="middle" class="odx-label">KOLKATA</text></g>
+</g>
+</svg></div><div class="odx-citylist">${odxCities.map((c,i)=>`<div class="odx-city"><div class="odx-citytop"><strong>${c.name}</strong><span class="status ${c.tone==='red'?'s-red':c.tone==='full'?'s-purple':'s-green'}" id="odxState${i}">${c.state}</span></div><div class="odx-stockbar"><div class="odx-stockfill" id="odxFill${i}" style="width:${c.stock}%;background:${c.tone==='red'?'#ef4444':c.tone==='full'?'#7c3aed':'#10b981'}"></div></div><div class="odx-cityfoot"><span>Inventory health <b id="odxPct${i}">${c.stock}%</b></span><span><b id="odxUnits${i}">${c.units.toLocaleString()}</b> units</span></div></div>`).join('')}</div><div class="odx-mapactions"><button class="primary" onclick="odxRunCycle()">Run network cycle</button><button onclick="odxToggle()" id="odxToggleBtn">${odxPaused?'Resume live network':'Pause live network'}</button><button onclick="odxRebalance()">Simulate rebalancing</button></div><div class="odx-pagecontext">Active workspace: <b>${active}</b> · City inventory and route telemetry refresh continuously</div></div><div class="odx-right"><div class="odx-righthead"><h3>Network performance</h3><span class="muted" id="odxClock">--:--:--</span></div><div class="odx-pulsemetrics"><div class="odx-pulsemetric"><small>Orders processed</small><strong id="odxOrders">1,284</strong><em>↗ stream updates</em></div><div class="odx-pulsemetric warn"><small>Inventory at risk</small><strong id="odxRisk">2 cities</strong><em id="odxRiskNote">Shortage watch</em></div><div class="odx-pulsemetric"><small>On-time SLA</small><strong id="odxSla">94.7%</strong><em>rolling estimate</em></div><div class="odx-pulsemetric"><small>Active movements</small><strong id="odxMoves">18</strong><em>route telemetry</em></div></div><div class="odx-livefeed"><div class="odx-livefeed-title"><span>Live operations feed</span><span class="status s-green" id="odxEventCount">STREAMING</span></div><div id="odxFeed"><div class="odx-feeditem"><span class="odx-feeddot"></span><div><b>Network telemetry initialized</b><small>City inventory and route state loaded</small></div><time>now</time></div></div></div></div></section>`}
 function odxAddEvent(title,detail,tone='blue'){odxEvents.unshift({title,detail,tone,time:new Date().toLocaleTimeString()});odxEvents=odxEvents.slice(0,4);const box=document.getElementById('odxFeed');if(box)box.innerHTML=odxEvents.map(e=>`<div class="odx-feeditem"><span class="odx-feeddot" style="background:${e.tone==='red'?'#ef4444':e.tone==='green'?'#10b981':e.tone==='purple'?'#7c3aed':'#0891b2'}"></span><div><b>${e.title}</b><small>${e.detail}</small></div><time>${e.time}</time></div>`).join('');const n=document.getElementById('odxEventCount');if(n)n.textContent=`${odxEvents.length} EVENTS`;}
 function odxRefresh(){if(odxPaused)return;odxTickCount++;const city=odxCities[Math.floor(Math.random()*odxCities.length)];city.stock=Math.max(8,Math.min(98,city.stock+(Math.random()>.48?Math.ceil(Math.random()*5):-Math.ceil(Math.random()*4))));city.units=Math.max(250,city.units+Math.floor(Math.random()*141)-65);city.demand=Math.max(120,city.demand+Math.floor(Math.random()*71)-28);city.state=city.stock<30?'SHORTAGE':city.stock>85?'HIGH CAPACITY':'HEALTHY';city.tone=city.stock<30?'red':city.stock>85?'full':'ok';const idx=odxCities.indexOf(city),fill=document.getElementById('odxFill'+idx),pct=document.getElementById('odxPct'+idx),units=document.getElementById('odxUnits'+idx),state=document.getElementById('odxState'+idx);if(fill){fill.style.width=city.stock+'%';fill.style.background=city.tone==='red'?'#ef4444':city.tone==='full'?'#7c3aed':'#10b981'}if(pct)pct.textContent=city.stock+'%';if(units)units.textContent=city.units.toLocaleString();if(state){state.textContent=city.state;state.className='status '+(city.tone==='red'?'s-red':city.tone==='full'?'s-purple':'s-green')}const mapDot=document.querySelectorAll('#odxMapNodes g')[idx]?.querySelector('.odx-city-dot');const mapRing=document.querySelectorAll('#odxMapNodes g')[idx]?.querySelector('.odx-city-ring');if(mapDot)mapDot.setAttribute('fill',city.tone==='red'?'#ef4444':city.tone==='full'?'#7c3aed':'#10b981');if(mapRing)mapRing.setAttribute('class','odx-city-ring '+(city.tone==='full'?'full':city.tone==='ok'?'ok':''));const orders=document.getElementById('odxOrders');if(orders)orders.textContent=(1284+odxTickCount* Math.ceil(Math.random()*7)).toLocaleString();const risk=document.getElementById('odxRisk');if(risk)risk.textContent=odxCities.filter(c=>c.stock<30).length+' cities';const sla=document.getElementById('odxSla');if(sla)sla.textContent=(93.7+Math.random()*1.8).toFixed(1)+'%';const moves=document.getElementById('odxMoves');if(moves)moves.textContent=String(16+Math.floor(Math.random()*7));const clock=document.getElementById('odxClock');if(clock)clock.textContent=new Date().toLocaleTimeString();const events=[['Inventory threshold crossed',city.name+' · stock health '+city.stock+'%',city.stock<30?'red':'blue'],['Shipment route updated',city.name+' corridor · ETA recalculated','purple'],['Demand signal refreshed',city.name+' · demand velocity '+(city.demand>city.units/2?'accelerating':'stable'),'blue'],['Replenishment recommendation ranked',city.name+' · '+(city.stock<30?'urgent transfer candidate':'capacity checked'),city.stock<30?'red':'green'],['Carrier SLA recalculated',city.name+' lane · on-time projection refreshed','green']];const ev=events[Math.floor(Math.random()*events.length)];odxAddEvent(ev[0],ev[1],ev[2]);}
 function odxToggle(){odxPaused=!odxPaused;document.querySelectorAll('.odx-network').forEach(el=>el.classList.toggle('odx-paused',odxPaused));const b=document.getElementById('odxToggleBtn'),st=document.getElementById('odxStreamState');if(b)b.textContent=odxPaused?'Resume live network':'Pause live network';if(st)st.textContent=odxPaused?'NETWORK PAUSED':'NETWORK ACTIVE';if(!odxPaused)odxRefresh();toast(odxPaused?'Network animation paused.':'Network telemetry resumed.')}
@@ -645,7 +1090,7 @@ startPageVisuals();
 
 // Private client-side demo gate. This is a UI gate, not production-grade authentication.
 const ODINX_DEMO_EMAIL = 'demo@odinx.com';
-const ODINX_DEMO_PASSWORD = 'Odinex@2510';
+const ODINX_DEMO_PASSWORD = 'Odinx@123';
 function odinxLogin(event){
   if(event)event.preventDefault();
   const email=(document.getElementById('odinxEmail').value||'').trim().toLowerCase();
@@ -662,6 +1107,28 @@ function odinxLogin(event){
   document.getElementById('odinxPassword').focus();
   return false;
 }
+
+// Fake notifications rotate between 2, 3 and 4 for the visual demo only.
+let odinxFakeNotificationCount=2;
+function odinxToggleNotifications(event){
+ if(event){event.preventDefault();event.stopPropagation();}
+ const pop=document.getElementById('fakeNotificationPopover');
+ const btn=document.getElementById('fakeNotificationButton');
+ if(!pop||!btn)return;
+ const opening=pop.hidden;
+ pop.hidden=!opening;
+ btn.setAttribute('aria-expanded',String(opening));
+}
+(function(){
+ const count=document.getElementById('fakeNotificationCount');
+ if(count)setInterval(()=>{odinxFakeNotificationCount=odinxFakeNotificationCount>=4?2:odinxFakeNotificationCount+1;count.textContent=String(odinxFakeNotificationCount)},1700);
+ document.addEventListener('click',e=>{
+  const wrap=document.getElementById('fakeNotificationWrap');
+  const pop=document.getElementById('fakeNotificationPopover');
+  const btn=document.getElementById('fakeNotificationButton');
+  if(wrap&&pop&&!wrap.contains(e.target)){pop.hidden=true;if(btn)btn.setAttribute('aria-expanded','false')}
+ });
+})();
 function odinxTogglePassword(){const p=document.getElementById('odinxPassword'),b=document.querySelector('.login-show-pass');if(!p||!b)return;const show=p.type==='password';p.type=show?'text':'password';b.textContent=show?'Hide':'Show'}
 function odinxLogout(){sessionStorage.removeItem('odinx_demo_authenticated');document.body.classList.remove('odinx-authenticated');document.getElementById('odinxLoginScreen').style.display='grid';document.getElementById('odinxLoginForm').reset();document.getElementById('odinxEmail').focus()}
 if(sessionStorage.getItem('odinx_demo_authenticated')==='1'){document.body.classList.add('odinx-authenticated');document.getElementById('odinxLoginScreen').style.display='none'}
