@@ -829,6 +829,29 @@ body.odinx-authenticated .fake-notification-wrap{display:block!important}
 #odxNetwork .odx-satmap svg .odx-flow-line.warm{stroke:#e8ad6c!important;animation-duration:9.5s!important}
 #odxNetwork .odx-satmap svg .odx-motion{fill:#0891b2!important;stroke:#fff!important}
 
+
+/* ODINX v15: mobile-only route diagram uses its own compact viewBox, never non-uniform scaling */
+@media(max-width:700px){
+  .login-map-mobile{
+    display:block!important;
+    position:absolute!important;
+    left:0!important;top:0!important;
+    width:100%!important;height:100%!important;
+    min-height:0!important;max-width:100%!important;
+    transform:none!important;
+    preserveAspectRatio:xMidYMid meet;
+  }
+  .login-map-mobile .flight-route{stroke-width:1.7!important;stroke-dasharray:4 8!important;opacity:.62!important}
+  .login-map-mobile .city-node text{
+    font-size:10px!important;
+    font-family:Inter,ui-sans-serif,system-ui,sans-serif!important;
+    font-weight:800!important;
+    letter-spacing:.015em!important;
+    paint-order:stroke!important;
+    stroke:#fff!important;stroke-width:3px!important;stroke-linejoin:round!important;
+  }
+  .login-map-mobile .moving-plane text{font-size:14px!important}
+}
 </style><meta content="yes" name="mobile-web-app-capable"/></head><body>
 <div class="fake-notification-wrap" id="fakeNotificationWrap">
  <button class="fake-notification-button" id="fakeNotificationButton" type="button" aria-label="Fake notifications" aria-expanded="false" onclick="odinxToggleNotifications(event)">
@@ -850,7 +873,7 @@ body.odinx-authenticated .fake-notification-wrap{display:block!important}
 <svg aria-label="Full-screen animated aircraft travelling between city hubs" class="login-map login-map-desktop" preserveAspectRatio="none" role="img" viewBox="0 0 1440 900">
 <defs><linearGradient id="skyLine" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19a8db" stop-opacity=".72"/><stop offset="1" stop-color="#7657dc" stop-opacity=".66"/></linearGradient><filter id="planeGlow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
 <g class="flight-corridors">
-<path id="d-del-mum" class="flight-route" d="M500 160 Q430 290 300 430"/><path id="d-mum-blr" class="flight-route purple" d="M300 430 Q380 560 500 690"/><path id="d-blr-chn" class="flight-route" d="M500 690 Q620 730 690 640"/><path id="d-chn-kol" class="flight-route purple" d="M690 640 Q920 480 1120 340"/><path id="d-kol-del" class="flight-route" d="M1120 340 Q850 90 500 160"/><path id="d-ahm-del" class="flight-route purple" d="M270 300 Q360 200 500 160"/><path id="d-pun-hyd" class="flight-route" d="M410 470 Q560 470 650 510"/><path id="d-hyd-blr" class="flight-route purple" d="M650 510 Q590 610 500 690"/><path id="d-jaipur-kol" class="flight-route" d="M620 260 Q850 250 1120 340"/><path id="d-kochi-mum" class="flight-route purple" d="M430 810 Q270 620 300 430"/><path id="d-east-chn" class="flight-route" d="M1120 340 Q900 500 690 640"/>
+<path id="d-del-mum" class="flight-route" d="M500 160 Q430 290 300 430"/><path id="d-mum-blr" class="flight-route purple" d="M300 430 Q380 560 500 690"/><path id="d-blr-chn" class="flight-route" d="M500 690 Q620 730 690 640"/><path id="d-chn-kol" class="flight-route purple" d="M690 640 Q920 480 1120 340"/><path id="d-kol-del" class="flight-route" d="M1120 340 Q850 90 500 160"/><path id="d-ahm-del" class="flight-route purple" d="M270 300 Q360 200 500 160"/><path id="d-pun-hyd" class="flight-route" d="M410 470 Q560 470 650 510"/><path id="d-hyd-blr" class="flight-route purple" d="M650 510 Q590 610 500 690"/><path id="d-LUCKNOW-kol" class="flight-route" d="M620 260 Q850 250 1120 340"/><path id="d-kochi-mum" class="flight-route purple" d="M430 810 Q270 620 300 430"/><path id="d-east-chn" class="flight-route" d="M1120 340 Q900 500 690 640"/>
 </g>
 <g class="city-node" transform="translate(500 160)"><circle r="10"/><text x="16" y="-12">DELHI NCR</text></g>
 <g class="city-node" transform="translate(270 300)"><circle r="8"/><text x="-14" y="-14" text-anchor="end">SURAT</text></g>
@@ -860,7 +883,7 @@ body.odinx-authenticated .fake-notification-wrap{display:block!important}
 <g class="city-node hot" transform="translate(500 690)"><circle r="10"/><text x="-18" y="-18" text-anchor="end">BENGALURU</text></g>
 <g class="city-node" transform="translate(690 640)"><circle r="9"/><text x="16" y="25">CHENNAI</text></g>
 <g class="city-node" transform="translate(1120 340)"><circle r="10"/><text x="16" y="-15">KOLKATA</text></g>
-<g class="city-node" transform="translate(620 260)"><circle r="8"/><text x="16" y="-14">JAIPUR</text></g>
+<g class="city-node" transform="translate(620 260)"><circle r="8"/><text x="16" y="-14">LUCKNOW</text></g>
 <g class="city-node" transform="translate(430 810)"><circle r="8"/><text x="15" y="24">KOCHI</text></g>
 <g class="moving-plane"><text>✈</text><animateMotion dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#d-del-mum"/></animateMotion></g>
 <g class="moving-plane violet"><text>✈</text><animateMotion begin="-2s" dur="10s" repeatCount="indefinite" rotate="auto"><mpath href="#d-mum-blr"/></animateMotion></g>
@@ -870,35 +893,46 @@ body.odinx-authenticated .fake-notification-wrap{display:block!important}
 <g class="moving-plane violet"><text>✈</text><animateMotion begin="-1s" dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#d-ahm-del"/></animateMotion></g>
 <g class="moving-plane"><text>✈</text><animateMotion begin="-3.5s" dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#d-pun-hyd"/></animateMotion></g>
 <g class="moving-plane violet"><text>✈</text><animateMotion begin="-5s" dur="9s" repeatCount="indefinite" rotate="auto"><mpath href="#d-hyd-blr"/></animateMotion></g>
-<g class="moving-plane"><text>✈</text><animateMotion begin="-7s" dur="11s" repeatCount="indefinite" rotate="auto"><mpath href="#d-jaipur-kol"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-7s" dur="11s" repeatCount="indefinite" rotate="auto"><mpath href="#d-LUCKNOW-kol"/></animateMotion></g>
 <g class="moving-plane violet"><text>✈</text><animateMotion begin="-2.5s" dur="10s" repeatCount="indefinite" rotate="auto"><mpath href="#d-kochi-mum"/></animateMotion></g>
 <g class="moving-plane"><text>✈</text><animateMotion begin="-8s" dur="11s" repeatCount="indefinite" rotate="auto"><mpath href="#d-east-chn"/></animateMotion></g>
 </svg>
-<svg aria-label="Full-screen mobile aircraft animation" class="login-map login-map-mobile" preserveAspectRatio="none" role="img" viewBox="0 0 430 900">
+<svg aria-label="Mobile supply routes connecting city hubs" class="login-map login-map-mobile" preserveAspectRatio="xMidYMid meet" role="img" viewBox="0 0 430 560">
+<defs><filter id="mobileNodeGlow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
 <g class="flight-corridors">
-<path id="m-del-mum" class="flight-route" d="M170 210 Q110 300 75 395"/><path id="m-mum-hyd" class="flight-route purple" d="M75 395 Q175 440 240 505"/><path id="m-hyd-blr" class="flight-route" d="M240 505 Q210 600 180 675"/><path id="m-blr-chn" class="flight-route purple" d="M180 675 Q270 690 305 620"/><path id="m-chn-kol" class="flight-route" d="M305 620 Q385 450 350 330"/><path id="m-kol-del" class="flight-route purple" d="M350 330 Q290 230 170 210"/><path id="m-ahm-del" class="flight-route" d="M65 300 Q110 240 170 210"/><path id="m-pun-mum" class="flight-route purple" d="M130 430 Q100 415 75 395"/><path id="m-jaipur-kol" class="flight-route" d="M255 275 Q315 290 350 330"/><path id="m-kochi-blr" class="flight-route purple" d="M105 790 Q150 730 180 675"/><path id="m-hyd-chn" class="flight-route" d="M240 505 Q290 560 305 620"/>
+<path id="m-del-LUCKNOW" class="flight-route" d="M190 92 Q210 115 224 142"/>
+<path id="m-del-ahm" class="flight-route purple" d="M190 92 Q115 110 70 170"/>
+<path id="m-del-kol" class="flight-route" d="M190 92 Q300 95 355 178"/>
+<path id="m-ahm-mum" class="flight-route purple" d="M70 170 Q68 210 92 250"/>
+<path id="m-mum-pun" class="flight-route" d="M92 250 Q132 262 153 286"/>
+<path id="m-pun-hyd" class="flight-route purple" d="M153 286 Q220 300 260 348"/>
+<path id="m-hyd-blr" class="flight-route" d="M260 348 Q220 380 196 420"/>
+<path id="m-blr-chn" class="flight-route purple" d="M196 420 Q245 438 282 455"/>
+<path id="m-chn-kochi" class="flight-route" d="M282 455 Q205 480 150 510"/>
+<path id="m-kol-chn" class="flight-route purple" d="M355 178 Q370 330 282 455"/>
+<path id="m-LUCKNOW-pun" class="flight-route" d="M224 142 Q190 210 153 286"/>
 </g>
-<g class="city-node" transform="translate(170 210)"><circle r="8"/><text x="12" y="-12">DELHI NCR</text></g>
-<g class="city-node" transform="translate(65 300)"><circle r="7"/><text x="-8" y="-12" text-anchor="end">AHMEDABAD</text></g>
-<g class="city-node" transform="translate(75 395)"><circle r="8"/><text x="-12" y="-15" text-anchor="end">MUMBAI</text></g>
-<g class="city-node" transform="translate(130 430)"><circle r="7"/><text x="-8" y="22" text-anchor="end">PUNE</text></g>
-<g class="city-node hot" transform="translate(240 505)"><circle r="8"/><text x="12" y="-14">HYDERABAD</text></g>
-<g class="city-node hot" transform="translate(180 675)"><circle r="8"/><text x="-12" y="-14" text-anchor="end">BENGALURU</text></g>
-<g class="city-node" transform="translate(305 620)"><circle r="8"/><text x="12" y="22">CHENNAI</text></g>
-<g class="city-node" transform="translate(350 330)"><circle r="8"/><text x="12" y="-12">KOLKATA</text></g>
-<g class="city-node" transform="translate(255 275)"><circle r="7"/><text x="12" y="-10">JAIPUR</text></g>
-<g class="city-node" transform="translate(105 790)"><circle r="7"/><text x="12" y="20">KOCHI</text></g>
-<g class="moving-plane"><text>✈</text><animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#m-del-mum"/></animateMotion></g>
-<g class="moving-plane violet"><text>✈</text><animateMotion begin="-2s" dur="9s" repeatCount="indefinite" rotate="auto"><mpath href="#m-mum-hyd"/></animateMotion></g>
-<g class="moving-plane"><text>✈</text><animateMotion begin="-3s" dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#m-hyd-blr"/></animateMotion></g>
-<g class="moving-plane violet"><text>✈</text><animateMotion begin="-1s" dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#m-blr-chn"/></animateMotion></g>
-<g class="moving-plane"><text>✈</text><animateMotion begin="-4s" dur="10s" repeatCount="indefinite" rotate="auto"><mpath href="#m-chn-kol"/></animateMotion></g>
-<g class="moving-plane violet"><text>✈</text><animateMotion begin="-5s" dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#m-kol-del"/></animateMotion></g>
-<g class="moving-plane"><text>✈</text><animateMotion begin="-2.5s" dur="6s" repeatCount="indefinite" rotate="auto"><mpath href="#m-ahm-del"/></animateMotion></g>
-<g class="moving-plane violet"><text>✈</text><animateMotion begin="-6s" dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#m-pun-mum"/></animateMotion></g>
-<g class="moving-plane"><text>✈</text><animateMotion begin="-7s" dur="9s" repeatCount="indefinite" rotate="auto"><mpath href="#m-jaipur-kol"/></animateMotion></g>
-<g class="moving-plane violet"><text>✈</text><animateMotion begin="-3.5s" dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#m-kochi-blr"/></animateMotion></g>
-<g class="moving-plane"><text>✈</text><animateMotion begin="-4.5s" dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#m-hyd-chn"/></animateMotion></g>
+<g class="city-node" transform="translate(190 92)"><circle r="7"/><text x="0" y="-14" text-anchor="middle">DELHI NCR</text></g>
+<g class="city-node" transform="translate(224 142)"><circle r="6"/><text x="10" y="-10">LUCKNOW</text></g>
+<g class="city-node" transform="translate(70 170)"><circle r="6"/><text x="-10" y="-12" text-anchor="end">SURAT</text></g>
+<g class="city-node" transform="translate(355 178)"><circle r="7"/><text x="-8" y="-14" text-anchor="end">KOLKATA</text></g>
+<g class="city-node" transform="translate(92 250)"><circle r="7"/><text x="-10" y="-13" text-anchor="end">MUMBAI</text></g>
+<g class="city-node" transform="translate(153 286)"><circle r="6"/><text x="-2" y="20" text-anchor="middle">PUNE</text></g>
+<g class="city-node hot" transform="translate(260 348)"><circle r="7"/><text x="0" y="-14" text-anchor="middle">HYDERABAD</text></g>
+<g class="city-node hot" transform="translate(196 420)"><circle r="7"/><text x="-10" y="-14" text-anchor="end">BENGALURU</text></g>
+<g class="city-node" transform="translate(282 455)"><circle r="7"/><text x="12" y="4">CHENNAI</text></g>
+<g class="city-node" transform="translate(150 510)"><circle r="6"/><text x="12" y="20">KOCHI</text></g>
+<g class="moving-plane"><text>✈</text><animateMotion dur="11s" repeatCount="indefinite" rotate="auto"><mpath href="#m-del-LUCKNOW"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-3s" dur="14s" repeatCount="indefinite" rotate="auto"><mpath href="#m-del-ahm"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-5s" dur="16s" repeatCount="indefinite" rotate="auto"><mpath href="#m-del-kol"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-2s" dur="12s" repeatCount="indefinite" rotate="auto"><mpath href="#m-ahm-mum"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-6s" dur="13s" repeatCount="indefinite" rotate="auto"><mpath href="#m-mum-pun"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-4s" dur="15s" repeatCount="indefinite" rotate="auto"><mpath href="#m-pun-hyd"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-8s" dur="14s" repeatCount="indefinite" rotate="auto"><mpath href="#m-hyd-blr"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-6s" dur="12s" repeatCount="indefinite" rotate="auto"><mpath href="#m-blr-chn"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-9s" dur="15s" repeatCount="indefinite" rotate="auto"><mpath href="#m-chn-kochi"/></animateMotion></g>
+<g class="moving-plane violet"><text>✈</text><animateMotion begin="-7s" dur="18s" repeatCount="indefinite" rotate="auto"><mpath href="#m-kol-chn"/></animateMotion></g>
+<g class="moving-plane"><text>✈</text><animateMotion begin="-5s" dur="13s" repeatCount="indefinite" rotate="auto"><mpath href="#m-LUCKNOW-pun"/></animateMotion></g>
 </svg>
 </div>
 <div class="air-radar"><span class="radar-dot"></span><span>INDIA NETWORK · LIVE TRAFFIC VIEW</span><span style="color:#93a8b8;font-weight:600">/ SIMULATED</span></div>
